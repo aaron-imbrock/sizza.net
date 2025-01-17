@@ -1,0 +1,25 @@
+{
+  "name": "sizza.net",
+  "version": "1.0.0",
+  "description": "This is the repo for [sizza.net](https://sizza.net). It's not used for anything \"webxciting\".",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "serve src/html/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaron-imbrock/sizza.net.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aaron-imbrock/sizza.net/issues"
+  },
+  "homepage": "https://github.com/aaron-imbrock/sizza.net#readme",
+  "devDependencies": {
+    "eslint": "9.18.0",
+    "serve": "14.2.4"
+  }
+}
