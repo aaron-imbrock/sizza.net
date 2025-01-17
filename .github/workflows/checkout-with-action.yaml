@@ -14,6 +14,6 @@ jobs:
         run: ls -lah
       - name: Remove extras
         run: |
-          mv html/html temp
+          mv src/html temp
           mv temp html
           ls -lah
