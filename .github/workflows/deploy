@@ -1,0 +1,26 @@
+name: Deploy Static Website
+
+on:
+  push:
+    branches:
+      - deploy
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Deploy to Server
+        run: |
+          WEBSITE_DIR=/var/www/sizza.net/html/
+          sudo rm -rf $WEBSITE_DIR/*
+
+          sudo cp -r ./* $WEBSITE_DIR/
+
+          sudo chown -R rootroot $WEBSITE_DIR
+          sudo chmod -R 755 $WEBSITE_DIR
+
+          # sudo systemctl reload nginx
