@@ -9,11 +9,25 @@ jobs:
   checkout-action:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.1.7
-      - name: List files after
-        run: ls -lah
-      - name: Remove extras
+      - name: Checkout Main
+        uses: actions/checkout@v4.1.7
+        with:
+          path: main
+          sparse-checkout: |
+            .github
+            src
+      - name: Checkout Deploy
+        uses: actions/checkout@v4.1.7
+        with:
+          ref: deploy
+          path: deploy
+      - name: Sync src to Deploy
         run: |
-          mv src/html temp
-          mv temp html
-          ls -lah
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          cp -r main/src/html deploy/
+          cd deploy
+
+          git add .
+          git commit -m "Sync src directory from main to deploy branch"
+          git push origin deploy
