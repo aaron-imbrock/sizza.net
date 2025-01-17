@@ -13,6 +13,9 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
+      - name: List files
+        run: ls -lah
+
       - name: Deploy to Server
         run: |
           WEBSITE_DIR=/var/www/sizza.net/html/
