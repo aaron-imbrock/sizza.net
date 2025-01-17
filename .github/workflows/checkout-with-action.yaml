@@ -9,10 +9,11 @@ jobs:
   checkout-action:
     runs-on: ubuntu-latest
     steps:
-      - name: Export System Vars
-        run: export
-      - name: List files Before
-        run: ls -lah
       - uses: actions/checkout@v4.1.7
       - name: List files after
         run: ls -lah
+      - name: Remove extras
+        run: |
+          mv html/html temp
+          mv temp html
+          ls -lah
